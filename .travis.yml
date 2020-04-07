@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+  - 2.6.3
+
+addons:
+  postgresql: "9.5"
+
+before_script:
+  - psql -c 'CREATE USER dev_mmo;' -U postgres
+  - psql -c 'ALTER USER dev_mmo CREATEDB;' -U postgres
+  - psql -c 'create database dev_mmo_test;' -U postgres
+  - psql -c 'ALTER DATABASE dev_mmo_test OWNER TO dev_mmo;' -U postgres
+
+branches: 
+  only:
+    - "master"
