@@ -26,7 +26,6 @@ development:
   <<: *default
   database: dev_mmo_development
 
-
 test:
   <<: *default
   database: dev_mmo_test
